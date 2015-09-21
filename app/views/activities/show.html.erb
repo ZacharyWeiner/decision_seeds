@@ -1,54 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Activity -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Activity %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:type) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.type %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:impact) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.impact %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:effort) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.effort %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:profitability) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.profitability %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:reach) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.reach %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:total_hours) %></dt>
+      <dd><pre class="prettyprint"><%= @activity.total_hours %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @activity.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              activities_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_activity_path(@activity), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              activity_path(@activity),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @activity.user %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @activity.type %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @activity.project %>
-</p>
-
-<p>
-  <strong>Impact:</strong>
-  <%= @activity.impact %>
-</p>
-
-<p>
-  <strong>Effort:</strong>
-  <%= @activity.effort %>
-</p>
-
-<p>
-  <strong>Profitability:</strong>
-  <%= @activity.profitability %>
-</p>
-
-<p>
-  <strong>Reach:</strong>
-  <%= @activity.reach %>
-</p>
-
-<p>
-  <strong>Total hours:</strong>
-  <%= @activity.total_hours %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
