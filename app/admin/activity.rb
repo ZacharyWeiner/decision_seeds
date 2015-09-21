@@ -1,4 +1,5 @@
 ActiveAdmin.register Activity do
+  permit_params :name, :description, :type, :impact, :effort, :profitability, :reach, :total_hours
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
