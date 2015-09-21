@@ -29,6 +29,7 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
+    @goal.user = current_user
 
     respond_to do |format|
       if @goal.save
